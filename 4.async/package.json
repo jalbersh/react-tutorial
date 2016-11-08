@@ -1,0 +1,42 @@
+{
+  "dependencies": {
+    "franc": "^2.0.0",
+    "gulp-watch": "^4.3.5",
+    "iso-639-3": "^1.0.0",
+    "random-words": "0.0.1",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.4.0"
+  },
+  "devDependencies": {
+    "babelify": "~5.0.3",
+    "browserify": "^13.0.0",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-util": "^3.0.7",
+    "gulp-watchify": "^0.6.0",
+    "gutil": "^1.6.4",
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-browserify": "^5.0.3",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-jasmine": "^0.3.8",
+    "karma-jasmine-html-reporter": "^0.1.8",
+    "karma-spec-reporter": "0.0.20",
+    "lodash.assign": "^4.2.0",
+    "react-addons-test-utils": "^15.0.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0",
+    "yargs": "^3.25.0"
+  },
+  "scripts": {
+    "test": "node_modules/karma/bin/karma start karma.conf.js"
+  }
+}
