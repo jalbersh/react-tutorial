@@ -40,7 +40,7 @@ describe('rootReducer', () => {
       expect(state).toEqual({})
     })
 
-    it('returns likelihood at key of language when RECEIVE_LIKELIHOOD', () => {
+    it('returns likelihood with key of language added with value likelihood when RECEIVE_LIKELIHOOD', () => {
       const action = {type: RECEIVE_LIKELIHOOD, language: 'pig latin', likelihood: 1}
       const state = likelihood({a: 1}, action)
       expect(state).toEqual({ a: 1, 'pig latin': 1 })
@@ -48,7 +48,7 @@ describe('rootReducer', () => {
 
     it('returns current state in all other cases', () => {
       const state = {a: 1}
-      expect(languages(state, {type: 'ANY_TYPE'})).toEqual(state)
+      expect(likelihood(state, {type: 'ANY_TYPE'})).toEqual(state)
     })
   })
 })
