@@ -77,7 +77,7 @@ describe('App', ()=> {
     expect(lis[2].textContent).toContain('Klingon')
   })
 
-  it('dispatches getLikelihood on link click', () => {
+  it('dispatches getLikelihood when a list item is clicked on', () => {
     const languages = ['Pig Latin', 'Sign Language', 'Klingon']
     const {output, dispatchSpy} = renderApp({languages})
     const klingon = TestUtils.findAllInRenderedTree(output, ({innerText, tagName}) => {
@@ -97,6 +97,7 @@ describe('App', ()=> {
     const app = new App
     expect(app.formatPercentage()).toEqual('')
     expect(app.formatPercentage(0.11223344)).toEqual('11.22 %')
+    expect(app.formatPercentage(0)).toEqual('0.00 %')
   })
 
   it('renders the likelihood to the page', () => {

@@ -50,5 +50,11 @@ describe('rootReducer', () => {
       const state = {a: 1}
       expect(likelihood(state, {type: 'ANY_TYPE'})).toEqual(state)
     })
+
+    it('does not mutate state', () => {
+      const state = {a: 1}
+      const newState = likelihood(state, {type: RECEIVE_LIKELIHOOD })
+      expect(state).not.toEqual(newState)
+    })
   })
 })
