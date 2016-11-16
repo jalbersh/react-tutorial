@@ -1,19 +1,18 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-
-import {someAction} from '../actions/actions'
+import ResultsTable from './ResultsTable'
+import TextInput from './TextInput'
 
 const ResultsPage = React.createClass({
   render() {
     return (
-      <div>Hello from ResultsPage.js!</div>
-    )
+        <div className="resultsPage">
+          <TextInput dispatch={this.props.dispatch} />
+          <ResultsTable data={this.props.getLanguagesReducer} />
+        </div>
+    );
   },
 
-  componentDidMount() {
-    const {dispatch} = this.props
-    dispatch(someAction())
-  },
 })
 
 export default connect((state) => state)(ResultsPage)

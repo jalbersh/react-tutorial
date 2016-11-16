@@ -76,6 +76,6 @@ Move the hard coded data out to a variable and render from that variable.
 Move the data to the Component state.
 
 Add an event handler to the input to handle text change events. Use this
-to drive updating the table with real results.
+to drive updating the table with real results from the lingua library.
 
 Move the results table to its own component.
