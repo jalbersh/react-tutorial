@@ -38,14 +38,15 @@ export class App extends Component {
           let keys = Object.keys(map)
           console.log('keys=', keys)
           let sortedMap = {}
-          if (keys.size > 1) {
+          //if (keys.length > 1) {
               console.log('sorting map')
-              keys = data.sort(function(a,b) {
-                  return a.foo - b.foo;
-              }).map(function(elem, index, arr) {
-                  return Object.keys(elem)[0];
-              });
-          }
+              keys = keys.sort();
+              console.log('after sort, keys=', keys)
+              for (let i = keys.length; i >= 0; i--) {
+                  let k = keys[i];
+                  sortedMap[k] = map[k]
+              }
+          //}
           console.log('sorted map=', sortedMap)
       }
       // return sortedMap
