@@ -17,6 +17,16 @@ export class App extends Component {
     )
   }
 
+  getKey(map,value) {
+      let keys = Object.keys(map)
+      for (let i=0;i<keys.length;i++) {
+          let k = keys[i]
+          if (map[k] == value) {
+              return k
+          }
+      }
+  }
+
   sortLanguages(languages) {
       console.log("likelihood: ", this.props.likelihood)
 
@@ -24,32 +34,40 @@ export class App extends Component {
       let map = {}
 
       if (!languages) return {}
-      for (let i = 0; i < languages.length; i++) {
+      for (let i=0; i < languages.length; i++) {
           const likelihood = this.formatPercentage(this.props.likelihood[languages[i]])
-          // console.log('lang:', languages[i], ' has likelihood ', likelihood)
           if (likelihood) {
               console.log('adding likelihood of ',likelihood,' for ', languages[i])
-              map[likelihood] = languages[i]
-              // map.set(likelihood, languages[i])
+              map[languages[i]] = likelihood
+          } else {
+              if (!map[languages[i]]) {
+                  map[languages[i]] = -1
+              }
           }
       }
-      if (Object.keys(map).length > 0) {
-          console.log('new unsorted map=', map)
-          let keys = Object.keys(map)
-          console.log('keys=', keys)
-          let sortedMap = {}
-          //if (keys.length > 1) {
-              console.log('sorting map')
-              keys = keys.sort();
-              console.log('after sort, keys=', keys)
-              for (let i = keys.length; i >= 0; i--) {
-                  let k = keys[i];
-                  sortedMap[k] = map[k]
+      console.log('got map=',map)
+      if (Object.values(map).length>0) {
+          console.log('new unsorted map=',map)
+          let values = Object.values(map)
+          console.log('values=',values)
+          let sortedLanguages = []
+          let sortedLikelihoods = []
+          values = values.sort()
+          console.log('after sort, values=',values)
+          for (let i=values.length; i >= 0; i--) {
+              let v = values[i]
+              console.log('v=',v)
+              let key = this.getKey(map, v)
+              console.log('key=',key)
+              sortedLanguages[i] = key
+              if (key) {
+                  sortedLikelihoods[i] = v
+              } else {
+                  sortedLikelihoods[i] = -1
               }
-          //}
-          console.log('sorted map=', sortedMap)
+          }
+          return sortedLanguages
       }
-      // return sortedMap
       return languages
   }
 
