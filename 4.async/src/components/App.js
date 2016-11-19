@@ -17,7 +17,7 @@ export class App extends Component {
     )
   }
 
-  getKey(languages,value) {
+  getLanguageFromLikelihood(languages,value) {
       for (let i=0; i < languages.length; i++) {
           const likelihood = this.formatPercentage(this.props.likelihood[languages[i]])
           if (likelihood == value) {
@@ -28,8 +28,6 @@ export class App extends Component {
   }
 
   sortLanguages(languages) {
-      console.log("likelihood: ", this.props.likelihood)
-
       let sorted = []
       if (!languages) return {}
       for (let i=0; i < languages.length; i++) {
@@ -42,7 +40,7 @@ export class App extends Component {
       sorted = sorted.sort()
       let sortedLanguages = []
       for (let i=sorted.length; i >= 0; i--) {
-          let language = this.getKey(languages,sorted[i])
+          let language = this.getLanguageFromLikelihood(languages,sorted[i])
           //console.log('language=',language)
           if (language) {
              sortedLanguages.push(language)
